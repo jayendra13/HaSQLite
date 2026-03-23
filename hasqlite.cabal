@@ -59,7 +59,8 @@ library
     import:           warnings
 
     -- Modules exported by the library.
-    exposed-modules:  MyLib
+    exposed-modules:
+        HaSQLite.Storage.Varint
 
     -- Modules included in this library but not exported.
     -- other-modules:
@@ -68,7 +69,10 @@ library
     -- other-extensions:
 
     -- Other library packages from which modules are imported.
-    build-depends:    base ^>=4.18.3.0
+    build-depends:
+        base ^>=4.18.3.0,
+        binary,
+        bytestring
 
     -- Directories containing source files.
     hs-source-dirs:   src
@@ -125,4 +129,7 @@ test-suite hasqlite-test
     -- Test dependencies.
     build-depends:
         base ^>=4.18.3.0,
-        hasqlite
+        bytestring,
+        hasqlite,
+        hspec,
+        QuickCheck
